@@ -1,0 +1,6 @@
+{
+  "name": "LockLogic — Vault Password Intelligence",
+  "description": "Privacy-first password strength analyzer with robotic 3D shard physics, heuristic pattern analysis (trained ML model: planned), k-anonymity breach detection, and educational Attack Lab simulation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
