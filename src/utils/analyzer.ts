@@ -2,6 +2,7 @@ import { ZxcvbnFactory } from '@zxcvbn-ts/core';
 import { dictionary, translations } from '@zxcvbn-ts/language-en';
 import { ATTACK_RATES } from './attackRates';
 import { defaultPredictabilityModel } from '../ml/heuristicModel';
+import { loadMarkovModel, type MarkovModel } from '../ml/markovModel';
 
 // Initialize ZxcvbnFactory with English language dictionaries
 let zxcvbnEngine: ZxcvbnFactory;
@@ -15,6 +16,34 @@ try {
 } catch (e) {
   console.warn('ZxcvbnFactory initialization fallback', e);
   zxcvbnEngine = new ZxcvbnFactory();
+}
+
+// ---- Trained predictability model (loaded lazily in the browser) ----
+export type ModelSource = 'trained' | 'heuristic';
+
+let trainedModel: MarkovModel | null = null;
+let modelSource: ModelSource = 'heuristic';
+const modelListeners = new Set<() => void>();
+
+export function getModelSource(): ModelSource {
+  return modelSource;
+}
+
+export function subscribeModel(cb: () => void): () => void {
+  modelListeners.add(cb);
+  return () => {
+    modelListeners.delete(cb);
+  };
+}
+
+if (typeof window !== 'undefined' && typeof fetch === 'function') {
+  loadMarkovModel().then((m) => {
+    if (m) {
+      trainedModel = m;
+      modelSource = 'trained';
+      modelListeners.forEach((cb) => cb());
+    }
+  });
 }
 
 export interface CharacterRisk {
@@ -210,7 +239,12 @@ export function analyzePassword(password: string): AnalysisResult {
   }
 
   const { pool, hasL, hasU, hasN, hasS } = calculateCharPool(password);
-  const { predictability, patterns: detectedSequences } = defaultPredictabilityModel.score(password);
+
+  // Predictability: trained model when loaded, otherwise the heuristic.
+  // The heuristic still supplies the readable list of detected patterns.
+  const heuristic = defaultPredictabilityModel.score(password);
+  const predictability = trainedModel ? trainedModel.predictability(password) : heuristic.predictability;
+  const detectedSequences = heuristic.patterns;
 
   // Max keyspace entropy (if fully random): H = L * log2(pool)
   const keyspaceEntropy = pool > 1 ? password.length * Math.log2(pool) : 0;
