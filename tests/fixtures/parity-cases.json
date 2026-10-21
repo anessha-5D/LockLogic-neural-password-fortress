@@ -1,0 +1,102 @@
+[
+ {
+  "password": "password",
+  "avgLogP": -1.7980670546899624,
+  "predictability": 100
+ },
+ {
+  "password": "iloveyou",
+  "avgLogP": -1.5268646608454723,
+  "predictability": 100
+ },
+ {
+  "password": "p@ssw0rd",
+  "avgLogP": -2.8391789567765082,
+  "predictability": 86
+ },
+ {
+  "password": "Summer2024!",
+  "avgLogP": -2.808043440522633,
+  "predictability": 87
+ },
+ {
+  "password": "qwertyuiop",
+  "avgLogP": -2.260753466266335,
+  "predictability": 100
+ },
+ {
+  "password": "Tr0ub4dor&3",
+  "avgLogP": -5.171818742482031,
+  "predictability": 20
+ },
+ {
+  "password": "aaaaaaaaaaaaaaaaaaaa",
+  "avgLogP": -1.7085291646774294,
+  "predictability": 100
+ },
+ {
+  "password": "correct horse battery staple",
+  "avgLogP": -3.2370272197972403,
+  "predictability": 75
+ },
+ {
+  "password": "xK9#mQ2$vL7@nR4!pW8^",
+  "avgLogP": -7.848338785302215,
+  "predictability": 0
+ },
+ {
+  "password": "K7mQ2xP9",
+  "avgLogP": -6.879045385967771,
+  "predictability": 0
+ },
+ {
+  "password": "Ab3$fG7!kL9@",
+  "avgLogP": -6.973668216092464,
+  "predictability": 0
+ },
+ {
+  "password": "letmein123",
+  "avgLogP": -2.278933864888512,
+  "predictability": 100
+ },
+ {
+  "password": "monkey",
+  "avgLogP": -1.8960658220463584,
+  "predictability": 100
+ },
+ {
+  "password": "ILoveYou2",
+  "avgLogP": -2.673744042680206,
+  "predictability": 91
+ },
+ {
+  "password": "dragon99",
+  "avgLogP": -2.2018966580287187,
+  "predictability": 100
+ },
+ {
+  "password": "naruto4ever",
+  "avgLogP": -2.083028945839239,
+  "predictability": 100
+ },
+ {
+  "password": "h3llo w0rld",
+  "avgLogP": -3.928431933767893,
+  "predictability": 55
+ },
+ {
+  "password": "caféau1ait",
+  "avgLogP": -5.7141022512561985,
+  "predictability": 4
+ },
+ {
+  "password": "P@55w0rd!",
+  "avgLogP": -4.342488532957955,
+  "predictability": 43
+ },
+ {
+  "password": "zxcvbnm123",
+  "avgLogP": -1.8498605048674235,
+  "predictability": 100
+ }
+]
