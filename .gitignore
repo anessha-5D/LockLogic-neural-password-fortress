@@ -9,3 +9,10 @@ coverage/
 !.env.example
 
 server.js
+# Training data: never commit (leaked passwords)
+data/
+rockyou*
+*.tar.gz
+train.txt
+val.txt
+test.txt
